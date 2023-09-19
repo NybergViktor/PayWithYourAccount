@@ -10,7 +10,7 @@ public class Main {
         System.out.println("2. Create a new invoice");
         System.out.println("3. pay invoice/invoices");
         System.out.println(" ");
-        System.out.println("The account currently has 50000 sek");
+        System.out.println("The account currently has 20000 sek");
 
         //Init variabel som styr user input (1,2 eller 3)
         int userAlt;
@@ -23,7 +23,7 @@ public class Main {
             try {
                 userAlt = myScanner.nextInt();
 
-                if(userAlt == 1){
+                if (userAlt == 1) {
                     System.out.println("How many employees do you want to pay salary to?");
                     int myEmployees = myScanner.nextInt();
                     //först måste user ange hur många som ska få lön
@@ -39,12 +39,13 @@ public class Main {
                     }
                     //nedan en till loop som använder array:en för att printa ut allas löner
                     System.out.println("Salary employee: ");
-                    for (int i = 0; i < employeeArray.length; i++){
-                        System.out.println("Employee " + (i+1) + ": " + employeeArray[i] + "Sek.");
-                    } break;
+                    for (int i = 0; i < employeeArray.length; i++) {
+                        System.out.println("Employee " + (i + 1) + ": " + employeeArray[i] + "Sek.");
+                    }
+                    break;
 
 
-                } else if(userAlt == 2){
+                } else if (userAlt == 2) {
                     System.out.println("Insert invoice's value");
                     //ny int för att läsa user input och sedan använda för att beräkna moms och addera till account
                     int invoiceValue = myScanner.nextInt();
@@ -62,17 +63,47 @@ public class Main {
                     System.out.println("Total value of account is: " + moneyAccount + " Sek");
 
                     break;
-                } else if(userAlt == 3){
+                } else if (userAlt == 3) {
+
+                    //alternativ 3 kommer jag att göra på ungefär samma sätt som alternativ 1, därför kopierar jag-
+                    //-en del kod från alt 1 och använder här nedan i alt 3
+
                     System.out.println("Please write the number of invoices you want to pay.");
-                    double payInvoice[];
 
+                    int myInvoice = myScanner.nextInt();
+                    //först måste user ange hur många fakturor ska betalas
+                    //sen skapar jag en array där fakturorna samlas i
+                    double[] invoiceArray = new double[myInvoice];
+                    //en for-loop som man anger varje anställds lös som ska betalas
+                    System.out.println("Type in the amount of invoice's you want to pay: ");
+                    for (int i = 0; i < invoiceArray.length; i++) {
+                        System.out.println("Type in the amount of invoice nr:  " + (i + 1) + ".");
+                        if (moneyAccount > 0) {
+                            double myNewInvoice = myScanner.nextDouble();
 
-                } else if(moneyAccount < 0){
-                    System.out.println("You do not have enough money, total value of your account is: " + moneyAccount);
-                } else if(userAlt == 0){
+                            //om det fakturan är lägre summa än vad som finns på kontot så drar den av den summan från kontot
+                            if (moneyAccount >= myNewInvoice) {
+                                moneyAccount -= myNewInvoice;
+                                System.out.println("konto efter avdrag: " + moneyAccount);
+                            } else if (moneyAccount < myNewInvoice) { //om det inte finns tillräckligt med pengar så kan man inte betala fakturan
+                                System.out.println("Sorry, you dont have enough money...");
+                                System.out.println("Your account value is: " + moneyAccount);
+                            }
+
+                        } else if (moneyAccount < 1) {// om man inte har några pengar (vilket aldrig kommer hända i detta programmet) så kan man inte betala några fakturor.
+                            System.out.println("You don't have enough money to pay salary.");
+                            break;
+                        }
+                    }
+                    //när alla fakturor är betalda avslutas programmet
+                    break;
+
+                } else if (userAlt == 0) {
                     break;
                 }
 
+
+                //om man inte skriver en siffra eller ett tal så hamnar man här och får chansen att skriva något annat
             } catch (Exception e) {
                 System.out.println("Wrong input, have to be a number.");
                 myScanner.next();
