@@ -52,13 +52,13 @@ public class Main {
                     //nedan adderar vi fakturans värde till account
                     moneyAccount += invoiceValue;
                     //skapar ny int för att beräkna moms samt spara värdet för att kunna printa.
-                    int vatInvoice;
+                    int taxInvoice;
                     //beräkna moms 25%
-                    vatInvoice = ((invoiceValue * 25) / 100);
+                    taxInvoice = ((invoiceValue * 25) / 100);
 
                     System.out.println("Total value of the invoice is: " + invoiceValue + " Sek");
-                    System.out.println("Total value Tax (VAT) is: " + vatInvoice + " Sek");
-                    System.out.println("Total value of invoice excluding VAT is: " + (invoiceValue - vatInvoice) + " Sek");
+                    System.out.println("Total value Tax (VAT) is: " + taxInvoice + " Sek");
+                    System.out.println("Total value of invoice excluding VAT is: " + (invoiceValue - taxInvoice) + " Sek");
                     System.out.println(" ");
                     System.out.println("Total value of account is: " + moneyAccount + " Sek");
 
