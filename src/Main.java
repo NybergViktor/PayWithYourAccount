@@ -16,7 +16,7 @@ public class Main {
         int userAlt;
 
         //konto med 20k som används ihop med programmet
-        int moneyAccount = 50000;
+        int moneyAccount = 20000;
 
         //while loop med catch då programmet endast ska styras med siffror vill jag ha en catch
         while (true) {
@@ -25,8 +25,23 @@ public class Main {
 
                 if(userAlt == 1){
                     System.out.println("How many employees do you want to pay salary to?");
-
-
+                    int myEmployees = myScanner.nextInt();
+                    //först måste user ange hur många som ska få lön
+                    //sen skapar jag en array där medarbetare samlas i som jag sen kan använda
+                    double[] employeeArray = new double[myEmployees];
+                    //en for-loop som man anger varje anställds lös som ska betalas
+                    for (int i = 0; i < employeeArray.length; i++) {
+                        System.out.println("Type in the salary of employee: " + (i + 1));
+                        double salaryWithTax = myScanner.nextDouble();
+                        //beräkna lön efter 30% skatt
+                        double salaryExTax = salaryWithTax * 0.7;
+                        employeeArray[i] = salaryExTax;
+                    }
+                    //nedan en till loop som använder array:en för att printa ut allas löner
+                    System.out.println("Salary employee: ");
+                    for (int i = 0; i < employeeArray.length; i++){
+                        System.out.println("Employee " + (i+1) + ": " + employeeArray[i] + "Sek.");
+                    } break;
 
 
                 } else if(userAlt == 2){
@@ -54,6 +69,8 @@ public class Main {
 
                 } else if(moneyAccount < 0){
                     System.out.println("You do not have enough money, total value of your account is: " + moneyAccount);
+                } else if(userAlt == 0){
+                    break;
                 }
 
             } catch (Exception e) {
