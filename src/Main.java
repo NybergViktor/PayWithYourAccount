@@ -75,7 +75,7 @@ public class Main {
                     //sen skapar jag en array där fakturorna samlas i
                     double[] invoiceArray = new double[myInvoice];
                     //en for-loop som man anger varje anställds lös som ska betalas
-                    System.out.println("Type in the amount of invoice's you want to pay: ");
+
                     for (int i = 0; i < invoiceArray.length; i++) {
                         System.out.println("Type in the amount of invoice nr:  " + (i + 1) + ".");
                         if (moneyAccount > 0) {
@@ -84,7 +84,7 @@ public class Main {
                             //om det fakturan är lägre summa än vad som finns på kontot så drar den av den summan från kontot
                             if (moneyAccount >= myNewInvoice) {
                                 moneyAccount -= myNewInvoice;
-                                System.out.println("konto efter avdrag: " + moneyAccount);
+                                System.out.println("New account value: " + moneyAccount);
                             } else if (moneyAccount < myNewInvoice) { //om det inte finns tillräckligt med pengar så kan man inte betala fakturan
                                 System.out.println("Sorry, you dont have enough money...");
                                 System.out.println("Your account value is: " + moneyAccount);
