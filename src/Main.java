@@ -52,9 +52,9 @@ public class Main {
                     //nedan adderar vi fakturans värde till account
                     moneyAccount += invoiceValue;
                     //skapar ny int för att beräkna moms samt spara värdet för att kunna printa.
-                    int taxInvoice;
+                    double taxInvoice;
                     //beräkna moms 25%
-                    taxInvoice = ((invoiceValue * 25) / 100);
+                    taxInvoice = invoiceValue * 0.25;
 
                     System.out.println("Total value of the invoice is: " + invoiceValue + " Sek");
                     System.out.println("Total value Tax (VAT) is: " + taxInvoice + " Sek");
