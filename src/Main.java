@@ -38,7 +38,7 @@ public class Main {
                         employeeArray[i] = salaryExTax;
                     }
                     //nedan en till loop som använder array:en för att printa ut allas löner
-                    System.out.println("Salary employee: ");
+                    System.out.println("Salary employee after tax: ");
                     for (int i = 0; i < employeeArray.length; i++) {
                         System.out.println("Employee " + (i + 1) + ": " + employeeArray[i] + "Sek.");
                     }
@@ -60,7 +60,7 @@ public class Main {
                     System.out.println("Total value Tax (VAT) is: " + taxInvoice + " Sek");
                     System.out.println("Total value of invoice excluding VAT is: " + (invoiceValue - taxInvoice) + " Sek");
                     System.out.println(" ");
-                    System.out.println("Total value of account is: " + moneyAccount + " Sek");
+                    System.out.println("Total value of account is now: " + moneyAccount + " Sek");
 
                     break;
                 } else if (userAlt == 3) {
@@ -84,7 +84,7 @@ public class Main {
                             //om det fakturan är lägre summa än vad som finns på kontot så drar den av den summan från kontot
                             if (moneyAccount >= myNewInvoice) {
                                 moneyAccount -= myNewInvoice;
-                                System.out.println("New account value: " + moneyAccount);
+
                             } else if (moneyAccount < myNewInvoice) { //om det inte finns tillräckligt med pengar så kan man inte betala fakturan
                                 System.out.println("Sorry, you dont have enough money...");
                                 System.out.println("Your account value is: " + moneyAccount);
@@ -96,6 +96,7 @@ public class Main {
                         }
                     }
                     //när alla fakturor är betalda avslutas programmet
+                    System.out.println("New account value: " + moneyAccount);
                     break;
 
                 } else if (userAlt == 0) {
