@@ -99,7 +99,11 @@ public class Main {
                     System.out.println("New account value: " + moneyAccount);
                     break;
 
+                } else if (userAlt > 3) {
+                    //om man skriver en siffra som är utanför alternativ 1,2,3 så hamnar man här
+                    System.out.println("Number can only be 1,2 or 3.");
                 } else if (userAlt == 0) {
+                    //om man vill avsluta programmet i huvudmenyn, men detta står inte osm info för användaren
                     break;
                 }
 
